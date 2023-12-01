@@ -25,16 +25,20 @@ const getMyAddress = (wallet) => new Promise((resolve, reject) => {
 	for (var index = 0; index < readMe.length; index++) {
 		wallet= wallet = readMe[index]
 		// wallet ='chwydqszfaompt4vysk5quzvfsp8yvf5gynyqbzboyce'
-		a = await getMyAddress(wallet);
-		if (a.volume <=0) {
-			console.log(chalk.red('BUSUK'))
-		}else{
-			hasilsimpan = 'JP | '+a.owner+' => '+a.volume
-			console.log(chalk.green(hasilsimpan))
-			fs.appendFileSync("RESULT.txt",  hasilsimpan+'\n', "utf-8");
+		try{
+			a = await getMyAddress(wallet);
+			if (a.volume <=0) {
+				console.log(chalk.red('BUSUK'))
+			}else{
+				hasilsimpan = 'JP | '+a.owner+' => '+a.volume
+				console.log(chalk.green(hasilsimpan))
+				fs.appendFileSync("RESULT.txt",  hasilsimpan+'\n', "utf-8");
+			}}
+			catch{
+				console.log(chalk.red('BUSUK =>'+wallet))
+			}
 		}
-	}
-	console.log(chalk.green(' HASIL DI SIMPAN DI RESULT.TXT'))
-	
+		console.log(chalk.green(' HASIL DI SIMPAN DI RESULT.TXT'))
 
-})();
+
+	})();
