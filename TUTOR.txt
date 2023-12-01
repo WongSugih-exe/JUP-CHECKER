@@ -1,0 +1,6 @@
+BUKA CMD
+-> npm install
+-> masukan list ke wallet.txt
+-> node index.js
+-> tunggu sampe selesai 
+-> hasil di result.txt
